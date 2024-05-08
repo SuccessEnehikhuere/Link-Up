@@ -1,51 +1,57 @@
 import React from 'react'
-import LogoHeading from '../svgs/Login/LogoHeading'
-import { EyeIcon, LinkIcon, UserIcon } from '../svgs/Navbar/NavbarSvgs'
 import Link from 'next/link'
+import { LinkIcon, UserIcon } from '../svgs/Navbar/NavbarSvgs'
+import { useSearchParams } from 'next/navigation'
+import LogoHeading from '../svgs/Login/LogoHeading'
+
 
 const Navbar = () => {
+  const params = useSearchParams()
+  const page = params.get('page')
   return (
-    <main className="flex justify-center font-sans p-4 mx-auto w-full">
-      <section className="flex justify-between w-full bg-white rounded-lg items-center p-4">
-        <div>
-          <LogoHeading
-            devwidth="70"
-            devheight="15"
-            logoheight="25"
-            logowidth="25"
-          />
-        </div>
-        <div className="flex gap-4 justify-center items-center font-semibold">
-          {/*links btn */}
-          <Link href="/links">
-            <button className="flex items-center justify-center  rounded-md gap-1 px-2 md:px-4 py-2">
-              <LinkIcon />
-              <p className="hidden md:contents">Links</p>
-            </button>
-          </Link>
-
-          {/*profile btn */}
-          <Link href="/profile">
-            <div className="flex justify-center items-center py-2 px-2 md:px-4 rounded-md gap-1">
-              <UserIcon />
-              <p className="hidden md:contents">Profile Details</p>
-            </div>
-          </Link>
-        </div>
-
-        {/*preview btn */}
-        <div>
-          <Link href="/preview">
-            <button className="px-4 py-1 border border-[#633CFF] font-[600] text-[#633CFF]  rounded-md">
-              <p className="hidden md:contents">Preview</p>
-              <div className="md:hidden contents">
-                <EyeIcon />
-              </div>
-            </button>
-          </Link>
-        </div>
+    <nav className="flex items-center justify-between bg-primary-white-light px-4 py-4 rounded-lg">
+      <section>
+        <LogoHeading
+          devwidth="70"
+          devheight="15"
+          logoheight="25"
+          logowidth="25"
+        />
       </section>
-    </main>
+      <ul className="flex items-center gap-4 font-semibold">
+        <Link href="/dashboard?page=links">
+          <li
+            className={`flex px-2 md:px-4 py-1 rounded-md items-center gap-1 ${
+              page === 'links'
+                ? 'text-primary-btn-color bg-active-nav-bg'
+                : 'text-dark-grey'
+            }`}
+          >
+            <LinkIcon color={page === 'links' ? '#633CFF' : '#737373'} />
+            <p className="hidden md:contents">Links</p>
+          </li>
+        </Link>
+        <Link href="/dashboard?page=profile">
+          <li
+            className={`flex px-2 md:px-4 py-1 rounded-md items-center gap-1 ${
+              page === 'profile'
+                ? 'text-primary-btn-color bg-active-nav-bg'
+                : 'text-dark-grey'
+            }`}
+          >
+            <UserIcon color={page === 'profile' ? '#633CFF' : '#737373'} />
+            <p className="hidden md:contents">Profile Details</p>
+          </li>
+        </Link>
+      </ul>
+      <section>
+        <Link href="/preview">
+          <button className="border border-primary-btn-color font-[600] rounded-md py-1 text-primary-btn-color bg-primary-white flex items-center justify-center w-full px-4 text-sm">
+            Preview
+          </button>
+        </Link>
+      </section>
+    </nav>
   )
 }
 

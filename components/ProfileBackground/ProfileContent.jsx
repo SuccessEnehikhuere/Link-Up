@@ -1,4 +1,6 @@
 import React from 'react'
+import ProfileContainer from './ProfileContainer'
+import Image from 'next/image'
 
 const ProfileContent = () => {
  return (
@@ -30,7 +32,7 @@ const ProfileContent = () => {
         
          </p>
        </section>
-       {/* <LinksContainer /> */}
+       <ProfileContainer/>
      </div>
    </div>
  )

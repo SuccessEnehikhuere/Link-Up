@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import ProfileContainer from '@/components/ProfileBackground/ProfileContainer'
 
 const UserProfile = () => {
   return (
@@ -17,7 +18,7 @@ const UserProfile = () => {
         <p className="flex-nowrap flex flex-col justify-center text-dark-grey-color-light text-lg items-center rounded-lg h-4 w-full font-bold truncate px-1 bg-profile-bg"></p>
         <p className="flex flex-col text-primary-color-light text-sm  justify-center items-center rounded-lg h-2 w-20 bg-profile-bg"></p>
       </section>
-      {/* <LinksContainer /> */}
+       <ProfileContainer/>
     </div>
   )
 }

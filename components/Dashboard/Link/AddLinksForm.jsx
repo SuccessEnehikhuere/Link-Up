@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { IoMenuSharp } from 'react-icons/io5'
 import Select from 'react-select'
-import LinkIcon from '../../svgs/Nav/LinkIcon'
+import { LinkIcon } from '@/components/svgs/Navbar/NavbarSvgs'
+import { LinksMenu } from '@/utils/LinksMenu'
 
 
 
@@ -10,7 +11,7 @@ const AddLinksForm = ({ i, link }) => {
 
   return (
     <li key={i} className="bg-primary-bg px-4 py-2 rounded-md">
-      <div className="flex items-center justify-between text-primary-white">
+      <div className="flex items-center justify-between text-primary-color-light">
         <span className="flex items-center text-sm gap-1 font-bold">
           <IoMenuSharp />
           Link #{i}
@@ -24,7 +25,7 @@ const AddLinksForm = ({ i, link }) => {
           Platform
         </label>
         <Select
-          options={linksOptions}
+          options={LinksMenu}
           // styles={styles}
 
         />

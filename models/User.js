@@ -1,0 +1,19 @@
+import mongoose from "mongoose";
+import Email from "next-auth/providers/email";
+
+const userSchema = new mongoose.Schema(
+  {
+    firstName: { type: String, required: false },
+    lastName: { type: String, required: false },
+    email: { type: String, required: true, unique: true },
+    password: { type: String },
+    image: { type: String },
+  },
+
+  {
+    timestamps: true,
+  }
+)
+
+const User = mongoose.models.User || mongoose.model('User', userSchema)
+export default User

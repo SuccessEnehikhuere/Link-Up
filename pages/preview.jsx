@@ -9,8 +9,8 @@ const Preview = () => {
       <Head>
         <title>Preview</title>
       </Head>
-      <section className="relative md:px-4 md:py-4 h-[35vh] md:bg-primary-btn-color max-w-screen w-full md:rounded-b-[2rem] box-border">
-        <div>
+      <section className="relative md:py-4 h-[35vh] md:bg-primary-btn-color max-w-screen w-full md:rounded-b-[2rem] box-border">
+        <div className='md:px-4'>
           <PreviewNavbar />
         </div>
 

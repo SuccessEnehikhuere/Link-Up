@@ -42,7 +42,7 @@ const handler = async (req, res) => {
       })
     } finally {
       // Disconnect from the database
-      await disconnect()
+      await disconnect();
     }
   } else {
     res.status(400).json({

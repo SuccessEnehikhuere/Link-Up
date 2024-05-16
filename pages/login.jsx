@@ -4,11 +4,27 @@ import LogoHeading from '@/components/svgs/Login/LogoHeading'
 import AuthLayout from '@/components/Layouts/AuthLayout'
 import EmailIcon from '@/components/svgs/Login/EmailIcon'
 import PasswordIcon from '@/components/svgs/Login/PasswordIcon'
+import { loginUser } from '@/Redux/slices/authSlice'
 import { FaEyeSlash, FaEye } from 'react-icons/fa'
 import Link from 'next/link'
+import { useForm } from 'react-hook-form'
+import { useDispatch, useSelector} from 'react-redux'
+import CircleSpinner from '@/components/Loaders/CircleSpinner'
+
 
 const Login = () => {
-  const [showPassword, setShowPassword] = useState(false)
+  const [showPassword, setShowPassword] = useState(false);
+
+  const {loginLoading} =useSelector((state)=>state.auth)
+
+  const dispatch = useDispatch();
+
+  const {register, handleSubmit, formState: {errors}, } = useForm();
+
+  const handleLogin = async(data)=>{
+    dispatch(loginUser(data))
+  }
+
   return (
     <AuthLayout>
       <Head>
@@ -25,7 +41,7 @@ const Login = () => {
           <div className="bg-primary-white p-4 md:p-8 rounded shadow-md w-full md:w-[420px]">
             <h2 className="text-2xl font-bold mb-1 text-dark-grey">Login</h2>
             <p>Add your details below to get back into the app</p>
-            <form className="mt-6">
+            <form onSubmit={handleSubmit(handleLogin)} className="mt-6">
               <div className="mb-5 text-dark-grey ">
                 <label
                   htmlFor="email"
@@ -36,13 +52,24 @@ const Login = () => {
                 <div className="flex border rounded items-center  px-2 gap-2 py-2">
                   <EmailIcon />
                   <input
+                    disabled={loginLoading}
+                    {...register('email', {
+                      required: true,
+                      message: 'email is required!',
+                      pattern: {
+                        value: /\S+@\S+\.\S+/,
+                        message: 'Entered value does not match email format',
+                      },
+                    })}
                     type="email"
                     id="email"
                     className="w-full  focus:outline-none focus:bg-none bg-none"
                   />
                 </div>
               </div>
-
+              {errors?.email && (
+                <p className="text-xs text-red">{errors?.email.message}</p>
+              )}
               <div className="mb-6">
                 <label
                   htmlFor="password"
@@ -55,30 +82,38 @@ const Login = () => {
                   <div className="flex  items-center   gap-2 w-full">
                     <PasswordIcon />
                     <input
+                      disabled={loginLoading}
                       type={showPassword ? 'text' : 'password'}
                       id="password"
+                      {...register('password', {
+                        required: 'password is required!',
+                      })}
                       className="w-full focus:outline-none none bg-none"
                     />
-                    {showPassword ? (
-                      <FaEye
-                        onClick={() => setShowPassword(false)}
-                        className="cursor-pointer"
-                      />
-                    ) : (
-                      <FaEyeSlash
-                        onClick={() => setShowPassword(true)}
-                        className="cursor-pointer"
-                      />
-                    )}
                   </div>
-                  {/*VALIDATE ERROR HERE*/}
+                  {showPassword ? (
+                    <FaEye
+                      onClick={() => setShowPassword(false)}
+                      className="cursor-pointer"
+                    />
+                  ) : (
+                    <FaEyeSlash
+                      onClick={() => setShowPassword(true)}
+                      className="cursor-pointer"
+                    />
+                  )}
                 </div>
+                {/*CHECK FOR ERRORS HERE*/}
+                <p className="text-xs text-red-500">
+                  {errors?.password && errors?.password?.message}
+                </p>
               </div>
               <button
+                disabled ={loginLoading}
                 type="submit"
                 className="bg-primary-btn-color text-white py-2 px-4 rounded-md hover:bg-primary-btn-color focus:outline-none w-full flex justify-center items-center"
               >
-                log in
+                {loginLoading ? <CircleSpinner/> : 'Log in'}
               </button>
             </form>
             <p className="mt-6 text-sm flex items-center flex-col md:flex-row gap-1 justify-center text-center">

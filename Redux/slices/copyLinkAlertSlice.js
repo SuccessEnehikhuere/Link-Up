@@ -9,7 +9,7 @@ const initialState = ({
 const alertSlice = createSlice({
   name: 'showLinkAlertSlice',
   initialState,
-  toggleShowlInk: (state, action)=>{
+  toggleShowLink: (state, action)=>{
     if(state.showLinkAlert){
       state.showLinkAlert = false
     }
@@ -21,4 +21,4 @@ const alertSlice = createSlice({
 
 
 export default alertSlice.reducer;
-export const {toggleShowlInk} = alertSlice.actions
+export const {toggleShowLink} = alertSlice.actions

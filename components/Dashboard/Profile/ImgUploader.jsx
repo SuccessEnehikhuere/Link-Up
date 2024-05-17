@@ -9,7 +9,7 @@ const ImgUploader = ({ setFile, user, file }) => {
 
   // This function is run after the image is gotten from the file input
   const getImageFileObject = async (imageFile) => {
-    setFile(imageFile.file)
+    // setFile(imageFile.file)
     setUploadText('Change image')
     setImageLoaded(true)
   }

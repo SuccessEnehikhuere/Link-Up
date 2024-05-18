@@ -2,3 +2,99 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+input {
+	background: none;
+}
+
+input:focus {
+	background: none;
+}
+
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	-webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+/* For WebKit browsers (Chrome, Safari) */
+/* You can customize the colors, width, etc. */
+::-webkit-scrollbar {
+	width: 5px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+	background-color: #f1f1f1; /* Color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #b9b9b9; /* Color of the thumb */
+	border-radius: 6px; /* Rounded corners of the thumb */
+}
+
+/* For Firefox */
+/* You can customize the colors, width, etc. */
+/* Note: Firefox currently doesn't support styling the scrollbar thumb separately */
+.scrollbar {
+	scrollbar-width: thin; /* "auto" or "thin" */
+}
+
+.scrollbar-track {
+	background-color: #f1f1f1; /* Color of the track */
+}
+
+/* You can use a pseudo-element to style the scrollbar thumb in Firefox */
+.scrollbar-thumb::before {
+	content: '';
+	display: block;
+	background-color: #888; /* Color of the thumb */
+	border-radius: 6px; /* Rounded corners of the thumb */
+	height: 100%; /* Full height of the thumb */
+}
+
+@keyframes show {
+	0% {
+		margin-top: 2rem;
+		opacity: 0;
+	}
+	100% {
+		margin-top: 0rem;
+		opacity: 1;
+	}
+}
+
+.showModal {
+	animation: show 0.2s ease-in-out;
+}
+
+.shimmer {
+	background-image: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+	background-size: 200% auto;
+	animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+	0% {
+		background-position: -200% 0;
+	}
+	100% {
+		background-position: 200% 0;
+	}
+}

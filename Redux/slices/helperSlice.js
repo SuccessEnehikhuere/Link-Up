@@ -25,17 +25,23 @@ export const deleteLinkWithId = createAsyncThunk('link/deleteLink', async(id)=>{
 })
 
 //a function to save links to the database
-export const saveLinksToDb = createAsyncThunk('/link/saveLink', async(links)=>{
-  const {data} = await axios.post(`/api/auth/saveLink`, {links});
-  return data;
-})
+export const saveLinksToDb = createAsyncThunk(
+  'link/createLink',
+  async (links) => {
+    const { data } = await axios.post(`/api/auth/saveLink`, { links })
+    return data
+  }
+)
 
 
-export const fetchLinksFromDb = createAsyncThunk('link/fetchLinks', async(thunkApi) => {
-  const {user} = thunkApi.getState().user;
-  const {data} = await axios.post(`/api/auth/getLinks`, {user});
-  return data;
-})
+export const fetchLinksFromDb = createAsyncThunk(
+  'link/fetchLinks',
+  async (links, thunkApi) => {
+    const { user } = thunkApi.getState().user
+    const { data } = await axios.post(`/api/auth/getLinks`, { user })
+    return data
+  }
+)
 
 export const helperSlice = createSlice({
   name:'helper',
@@ -46,7 +52,7 @@ export const helperSlice = createSlice({
     },
     increaseLinks: (state, action)=>{
       if(state.newLinks === 2) {
-        return
+        return;
       }
 
       const obj = {

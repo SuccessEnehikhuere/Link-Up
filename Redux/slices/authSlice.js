@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import toast from 'react-hot-toast'
 import { signIn } from 'next-auth/react'
-import { trusted } from "mongoose";
+
 
 
 const initialState = {

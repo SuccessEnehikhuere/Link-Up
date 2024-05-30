@@ -55,7 +55,7 @@ const register = () => {
                   className={`flex border rounded items-center px-2 gap-2 py-2 ${
                     errors?.email
                       ? 'border-red text-red'
-                      : 'border-primary-color-light text-dark-grey-color-light'
+                      : 'border-primary-color-light text-dark-grey'
                   } `}
                 >
                   <EmailIcon color={errors?.email ? '#FF3939' : '#737373'} />

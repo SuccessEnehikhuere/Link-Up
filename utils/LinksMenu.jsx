@@ -22,7 +22,7 @@ export const LinksMenu = [
     color: '#1A1A1A',
     value: 'github',
     label: (
-      <span className="flex items-center gap-2 text-dark-grey-color-light">
+      <span className="flex items-center gap-2 text-dark-grey">
         <GitIcon /> Github
       </span>
     ),
@@ -32,7 +32,7 @@ export const LinksMenu = [
     color: '#fff',
     value: 'Frontend Mentors',
     label: (
-      <span className="flex items-center gap-2 text-dark-grey-color-light">
+      <span className="flex items-center gap-2 text-dark-grey">
         <FrontendMentorIcon />
         Frontend Mentors
       </span>
@@ -43,7 +43,7 @@ export const LinksMenu = [
     color: '#43B7E9',
     value: 'Twitter',
     label: (
-      <span className="flex items-center gap-2 text-dark-grey-color-light">
+      <span className="flex items-center gap-2 text-dark-grey">
         <TwitterIcon />
         Twitter
       </span>
@@ -54,7 +54,7 @@ export const LinksMenu = [
     color: '#2D68FF',
     value: 'Linkedin',
     label: (
-      <span className="flex items-center gap-2 text-dark-grey-color-light">
+      <span className="flex items-center gap-2 text-dark-grey">
         <LinkedinIcon />
         Linkedin
       </span>
@@ -65,7 +65,7 @@ export const LinksMenu = [
     color: '#EE3939',
     value: 'Youtube',
     label: (
-      <span className="flex items-center gap-2 text-dark-grey-color-light">
+      <span className="flex items-center gap-2 text-dark-grey">
         <YoutubeIcon />
         Youtube
       </span>
@@ -76,7 +76,7 @@ export const LinksMenu = [
     color: '#2442AC',
     value: 'Facebook',
     label: (
-      <span className="flex items-center gap-2 text-dark-grey-color-light">
+      <span className="flex items-center gap-2 text-dark-grey">
         <FacebookIcon />
         Facebook
       </span>
@@ -87,7 +87,7 @@ export const LinksMenu = [
     color: '#EE3FC8',
     value: 'Twitch',
     label: (
-      <span className="flex items-center gap-2 text-dark-grey-color-light">
+      <span className="flex items-center gap-2 text-dark-grey">
         <TwitchIcon /> Twitch
       </span>
     ),
@@ -97,7 +97,7 @@ export const LinksMenu = [
     color: '#333',
     value: 'Dev.to',
     label: (
-      <span className="flex items-center gap-2 text-dark-grey-color-light">
+      <span className="flex items-center gap-2 text-dark-grey">
         <DevIcon /> Dev.to
       </span>
     ),
@@ -107,7 +107,7 @@ export const LinksMenu = [
     color: '#8A1A50',
     value: 'Codewars',
     label: (
-      <span className="flex items-center gap-2 text-dark-grey-color-light">
+      <span className="flex items-center gap-2 text-dark-grey">
         <CodewarsIcon /> Codewars
       </span>
     ),
@@ -117,7 +117,7 @@ export const LinksMenu = [
     color: '#8A1A50',
     value: 'Codepen',
     label: (
-      <span className="flex items-center gap-2 text-dark-grey-color-light">
+      <span className="flex items-center gap-2 text-dark-grey">
         <CodePenIcon />
         Codepen
       </span>
@@ -128,7 +128,7 @@ export const LinksMenu = [
     color: '#302267',
     value: 'FreeCodeCamp',
     label: (
-      <span className="flex items-center gap-2 text-dark-grey-color-light">
+      <span className="flex items-center gap-2 text-dark-grey">
         <FreeCodeIcon />
         FreeCodeCamp
       </span>
@@ -139,7 +139,7 @@ export const LinksMenu = [
     color: '#EB4925',
     value: 'Gitlab',
     label: (
-      <span className="flex items-center gap-2 text-dark-grey-color-light">
+      <span className="flex items-center gap-2 text-dark-grey">
         <GitLabIcon />
         Gitlab
       </span>
@@ -150,7 +150,7 @@ export const LinksMenu = [
     color: '#0330D1',
     value: 'HashNode',
     label: (
-      <span className="flex items-center gap-2 text-dark-grey-color-light">
+      <span className="flex items-center gap-2 text-dark-grey">
         <HashNodeIcon />
         HashNode
       </span>
@@ -161,7 +161,7 @@ export const LinksMenu = [
     color: '#EC7100',
     value: 'Stachoverflow',
     label: (
-      <span className="flex items-center gap-2 text-dark-grey-color-light">
+      <span className="flex items-center gap-2 text-dark-grey">
         <StackIcon />
         Stachoverflow
       </span>

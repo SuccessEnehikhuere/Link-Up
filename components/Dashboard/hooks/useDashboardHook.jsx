@@ -1,13 +1,24 @@
-import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
-import { fetchLinksFromDb, increaseLinks, removeLink, saveLinksToDb, toggleActivateSaveBtn, updateLink } from "@/Redux/slices/helperSlice";
-import { useSession } from "next-auth/react";
+'use client'
 
-const useDashboardHook = ()=>{
-  const {data: session} = useSession();
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  fetchLinksFromDb,
+  increaseLinks,
+  removeLink,
+  saveLinks,
+  saveLinksToDb,
+  toggleActivateSaveBtn,
+  updateLink,
+} from '../../../Redux/slices/helperSlice'
+import { useSession } from 'next-auth/react'
+
+const useDashboardHook = () => {
+  const { data: session } = useSession();
   const dispatch = useDispatch();
   const [activateSave, setActivateSave] = useState(false);
-  const {noOfLinks, activateSaveBtn, newLinks, saveLinksLoading } = useSelector((state)=>state.helper);
+  const { noOfLinks, activateSaveBtn, newLinks, saveLinksLoading } =
+    useSelector((state) => state.helper);
 
   const styles = {
     dropdownIndicator: (base) => ({
@@ -56,17 +67,20 @@ const useDashboardHook = ()=>{
         border: '1px solid #d9d9d9',
       },
     }),
+  }
+
+  const handleAddNewLink = () => {
+   
+    dispatch(increaseLinks(session?.user?.id))
+
+  };
+//  console.log(session)
+
+  const handleRemoveLink = (id) => {
+    dispatch(removeLink(id))
   };
 
-  const handleAddNewLink = ()=>{
-    dispatch(increaseLinks(session.user.id));
-  };
-
-  const handleRemoveLink = (id)=>{
-    dispatch(removeLink(id));
-  };
-
-  const updateLinks = (id, selectedOption, linkAddress)=>{
+  const updateLinks = (id, selectedOption, linkAddress) => {
     dispatch(
       updateLink({
         id,
@@ -79,19 +93,21 @@ const useDashboardHook = ()=>{
 
   const handleSaveLinks = () => {
     dispatch(saveLinksToDb(newLinks))
-  };
+    // dispatch(saveLinks());
+  }
 
- const handleActivateSave = (selectedOption, linkAddress) => {
-   dispatch(toggleActivateSaveBtn(true))
- };
+  // This function is used to dispatch the action to toggle the activateSaveBtn state
+  const handleActivateSave = () => {
+    dispatch(toggleActivateSaveBtn(true))
+  }
 
   const deActivateSave = () => {
     dispatch(toggleActivateSaveBtn(false))
-  };
+  }
 
   const fetchLinks = () => {
     dispatch(fetchLinksFromDb())
-  };
+  }
 
   return {
     styles,
@@ -109,7 +125,6 @@ const useDashboardHook = ()=>{
     saveLinksLoading,
     fetchLinks,
   }
+}
 
-};
-
-export default useDashboardHook
+export default useDashboardHook;

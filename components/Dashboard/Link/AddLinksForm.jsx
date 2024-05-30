@@ -7,11 +7,10 @@ import { useSelector } from 'react-redux'
 import useDashboardHook from '../hooks/useDashboardHook'
 
 
-
 const AddLinksForm = ({ i, link }) => {
  const [selectedOption, setSelectedOption] = useState(null);
- const [linkAddress, setLinkAddress] = useState('')
- const {allLinks, newLinks} = useSelector((state)=>state.helper)
+ const [linkAddress, setLinkAddress] = useState('');
+ const {allLinks, newLinks} = useSelector((state)=>state.helper);
 
  const {
    styles,
@@ -27,7 +26,7 @@ const AddLinksForm = ({ i, link }) => {
     updateLinks(link.id, selectedOption, linkAddress)
     handleActivateSave(selectedOption, linkAddress)
   } else {
-    deActivateSave()
+    deActivateSave();
   }
  }, [selectedOption, linkAddress]);
 

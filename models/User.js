@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import Email from "next-auth/providers/email";
 
 const userSchema = new mongoose.Schema(
   {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import GetStarted from './GetStarted';
 import AddLinks from './AddLinks';
 import useDashboardHook from '../hooks/useDashboardHook';
@@ -11,7 +11,7 @@ const LinksPage = () => {
    activateSaveBtn,
    newLinks,
    handleSaveLinks,
- } = useDashboardHook()
+ } = useDashboardHook();
 
   return (
     <section className="col-span-7 lg:col-span-4 bg-primary-white rounded-md p-6 md:px-12  overflow-auto">
@@ -42,7 +42,6 @@ const LinksPage = () => {
               activateSaveBtn ? 'opacity-100' : 'opacity-25'
             }`}
           >
-            save
             {saveLinksLoading ? <SaveSpinner /> : 'Save'}
           </button>
         </section>

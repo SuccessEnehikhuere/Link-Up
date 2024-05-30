@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleShowLink } from '@/Redux/slices/copyLinkAlertSlice';
+import { LinkIcon } from '../svgs/Navbar/NavbarSvgs';
 
 const CopyLinkAlert = () => {
   const [timer, setTimer] = useState(2);
@@ -27,7 +28,7 @@ const CopyLinkAlert = () => {
         showLinkAlert ? 'block showModal ' : 'hidden'
       }`}
     >
-      <section className=" flex items-center px-4 py-2 bg-dark-grey-color-light w-auto text-light-Grey rounded-lg ">
+      <section className=" flex items-center px-4 py-2 bg-dark-grey w-auto text-primary-bg rounded-lg ">
         <LinkIcon />
         <p className="text-sm ml-2">
           The link has been copied to your clipboard!

@@ -4,14 +4,14 @@ import 'react-image-upload/dist/index.css'
 import UploadIcon from '@/components/svgs/Dashboard/UploadIcon'
 
 const ImgUploader = ({ setFile, user, file }) => {
-  const [imageLoaded, setImageLoaded] = useState(false)
+  const [imageLoaded, setImageLoaded] = useState(false);
   const [uploadText, setUploadText] = useState('+ Upload Image')
 
   // This function is run after the image is gotten from the file input
   const getImageFileObject = async (imageFile) => {
-    // setFile(imageFile.file)
-    setUploadText('Change image')
-    setImageLoaded(true)
+    setFile(imageFile.file);
+    setUploadText('Change image');
+    setImageLoaded(true);
   }
 
   function runAfterImageDelete(file) {
@@ -45,8 +45,8 @@ const ImgUploader = ({ setFile, user, file }) => {
           <span
             className={`flex flex-col items-center justify-center text-xs w-[150px] ${
               imageLoaded
-                ? 'text-primary-white-light bg-[rgba(0,0,0,0.3)]'
-                : 'text-primary-button-bg'
+                ? 'text-primary-white bg-[rgba(0,0,0,0.3)]'
+                : 'text-primary-btn-color'
             } font-semibold  h-[150px] bg-contain`}
           >
             <UploadIcon color={imageLoaded ? '#fff' : '#633cff'} />

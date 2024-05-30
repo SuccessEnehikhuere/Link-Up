@@ -32,7 +32,7 @@ const AddLinkModal = () => {
         showAddLinkModal ? 'block showModal ' : 'hidden'
       }`}
     >
-      <section className="flex items-center px-4 py-2 bg-dark-grey-color-light w-auto text-light-Grey rounded-lg ">
+      <section className="flex items-center px-4 py-2 bg-dark-grey w-auto text-primary-bg rounded-lg ">
         <ChangesIcon />
         <p className=" text-sm ml-2">{saveLinksMessage}</p>
       </section>

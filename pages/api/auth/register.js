@@ -22,7 +22,7 @@ const handler = async (req, res) => {
       password: bcryptjs.hashSync(password),
     })
     // Find and return the document
-    const filter = { email: email }
+  	const filter = { 'email': email }
     const document = await User.findOne(filter)
     res.json(document)
   } catch (e) {

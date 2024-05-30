@@ -1,7 +1,7 @@
-const { getServerSession } = require('next-auth')
-const { authOptions } = require('./[...nextauth]')
-const { dbConnect, disconnect } = require('@/lib/mongodb')
-const { default: Links } = require('@/models/Links')
+import { getServerSession } from 'next-auth'
+import { authOptions } from './[...nextauth]'
+import { dbConnect, disconnect } from '@/lib/mongodb'
+import Links from '@/models/Links'
 
 const handler = async (req, res) => {
   if (req.method === 'POST') {
@@ -9,10 +9,10 @@ const handler = async (req, res) => {
     const session = await getServerSession(req, res, authOptions)
     if (!session) {
       res.status(401).json({ message: 'Unauthorized access' })
-      return
+      return;
     }
 
-    await dbConnect()
+    await dbConnect();
     try {
       await Links.deleteOne({ _id: id })
 

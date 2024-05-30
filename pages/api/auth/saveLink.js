@@ -1,8 +1,7 @@
-const { getServerSession } = require('next-auth')
-const { authOptions } = require('./[...nextauth]')
-const { dbConnect, disconnect } = require('@/lib/mongodb')
-const { default: Links } = require('@/models/Links')
-
+import { getServerSession } from 'next-auth'
+import { authOptions } from './[...nextauth]'
+import { dbConnect, disconnect } from '@/lib/mongodb'
+import Links from '@/models/Links'
 
 const handler = async (req, res) => {
   if (req.method !== 'POST') {

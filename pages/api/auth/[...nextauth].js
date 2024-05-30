@@ -12,23 +12,26 @@ export const authOptions = {
       name: 'Credentials',
       async authorize(credentials) {
         // connect to mongodb database
-        await dbConnect()
+        await dbConnect();
         // find user by email
         let user = await User.findOne({
           email: credentials.email,
         })
         // disconnect from database
-        await disconnect()
+        await disconnect();
+        console.log(user);
         if (!user) {
           // if user with email is not found
           throw new Error('Incorrect email, user not found')
         } else if (
           user &&
           bcryptjs.compareSync(credentials.password, user.password)
+        
         ) {
           // if user is found and password matches, return user object
           user = { id: user._id.toString(), email: user.email }
-          return user
+          console.log(user)
+          return user;
         } else {
           // if user is found and password is not correct
           throw new Error('Incorrect password, Try Again!!!')
@@ -41,7 +44,7 @@ export const authOptions = {
       // Send properties to the client, like an access_token and user id from a provider.
       session.user.id = token?.sub
       session.user.email = token.email
-      return session
+      return session;
     },
   },
   session: {

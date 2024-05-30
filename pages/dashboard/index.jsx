@@ -11,7 +11,7 @@ import ProfilePage from '@/components/Dashboard/Profile/ProfilePage'
 const Dashboard = () => {
   const params = useSearchParams()
   const page = params.get('page')
-  const { data: session } = useSession()
+  const { data: session } = useSession();
 
   console.log(session)
   return (

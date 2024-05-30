@@ -5,7 +5,7 @@ import { authOptions } from './[...nextauth]'
 
 const handler = async (req, res) => {
   if (req.method === 'POST') {
-    const session = await getServerSession(req, res, authOptions)
+    const session = await getServerSession(req, res, authOptions);
     if (!session) {
       // If session is null, user is not authenticated
       return res.status(401).json({
@@ -14,7 +14,7 @@ const handler = async (req, res) => {
     }
 
     // Connect to mongodb database
-    await dbConnect()
+    await dbConnect();
 
     try {
       // Use findById to find the user by _id

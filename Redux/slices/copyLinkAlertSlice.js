@@ -11,6 +11,9 @@ const alertSlice = createSlice({
   initialState,
   reducers: {
     toggleShowLink: (state, action) => {
+      if(state.showLinkAlert){
+        state.showLinkAlert = false;
+      }
       state.showLinkAlert = action.payload
     },
   },

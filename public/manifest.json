@@ -1,12 +1,12 @@
 {
  "theme_color" : "#633CFF",
 "background_color" : "#633CFF",
-"display" : "browser",
+"display" : "standalone",
 "scope" : "/",
 "start_url" : "/",
 "short_name" : "MSS",
 "name" : "ProLinks",
-"description" : "A hub to save, and access your social links anytime, anywhere",
+"description" : "A hub to save, and copy your social links anytime, anywhere",
   "icons": [
     {
       "src": "/icon-192x192.png",

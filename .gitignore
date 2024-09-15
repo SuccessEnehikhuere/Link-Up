@@ -35,3 +35,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Ignore the generated service worker file
+*sw.js
+*workbox-e43f5367.js

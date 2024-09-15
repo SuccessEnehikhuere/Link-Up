@@ -10,7 +10,7 @@ const handler = async(req, res) =>{
     return res.status(401).json({message : "Invalid details"})
   }
 
-  const isMatch = await user.comparePassword(password)
+  const isMatch = await user?.comparePassword(password)
   res.status(200).json({ token })
 }
 

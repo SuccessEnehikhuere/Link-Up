@@ -21,14 +21,21 @@ const AddLinksForm = ({ i, link }) => {
  } = useDashboardHook();
 
 
- useEffect(()=>{
-  if (selectedOption && linkAddress) {
-    updateLinks(link.id, selectedOption, linkAddress)
-    handleActivateSave(selectedOption, linkAddress)
-  } else {
-    deActivateSave();
-  }
- }, [selectedOption, linkAddress]);
+ useEffect(() => {
+   if (selectedOption && linkAddress) {
+     updateLinks(link?.id, selectedOption, linkAddress)
+     handleActivateSave(selectedOption, linkAddress)
+   } else {
+     deActivateSave()
+   }
+ }, [
+   selectedOption,
+   linkAddress,
+   link.id,
+   updateLinks,
+   handleActivateSave,
+   deActivateSave,
+ ])
 
   return (
     <li key={i} className="bg-primary-bg px-4 py-2 rounded-md">

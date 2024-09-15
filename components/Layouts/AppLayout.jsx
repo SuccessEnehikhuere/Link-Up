@@ -17,7 +17,7 @@ const AppLayout = ({children}) => {
     if (session?.user?.email && !user) {
       dispatch(fetchUser())
     }
-  }, [session?.user, user])
+  }, [dispatch, session?.user, user])
 
   return (
     <div>

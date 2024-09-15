@@ -18,13 +18,13 @@ const AddLinkModal = () => {
         if (timer === 0) {
           setTimer(2)
           dispatch(toggleAddLinkModal(false))
-          return;
+          return
         }
         if (showAddLinkModal) {
           setTimer((prev) => prev - 1)
         }
       }, 2000)
-    }, [timer, showAddLinkModal]);
+    }, [timer, showAddLinkModal, dispatch])
 
   return (
     <section

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   fetchLinksFromDb,
@@ -69,45 +69,50 @@ const useDashboardHook = () => {
     }),
   }
 
-  const handleAddNewLink = () => {
-   
+  const handleAddNewLink = useCallback(() => {
     dispatch(increaseLinks(session?.user?.id))
-
-  };
+  }, [dispatch, session])
 //  console.log(session)
 
-  const handleRemoveLink = (id) => {
-    dispatch(removeLink(id))
-  };
+ const handleRemoveLink = useCallback(
+   (id) => {
+     dispatch(removeLink(id))
+   },
+   [dispatch]
+ )
 
-  const updateLinks = (id, selectedOption, linkAddress) => {
-    dispatch(
-      updateLink({
-        id,
-        address: linkAddress,
-        name: selectedOption.value,
-        color: selectedOption.color,
-      })
-    )
-  };
+ const updateLinks = useCallback(
+   (id, selectedOption, linkAddress) => {
+     dispatch(
+       updateLink({
+         id,
+         address: linkAddress,
+         name: selectedOption.value,
+         color: selectedOption.color,
+       })
+     )
+   },
+   [dispatch]
+ )
 
-  const handleSaveLinks = () => {
-    dispatch(saveLinksToDb(newLinks))
-    // dispatch(saveLinks());
-  }
+ const handleSaveLinks = useCallback(() => {
+   dispatch(saveLinksToDb(newLinks))
+ }, [dispatch, newLinks])
 
   // This function is used to dispatch the action to toggle the activateSaveBtn state
-  const handleActivateSave = () => {
-    dispatch(toggleActivateSaveBtn(true))
-  }
+ const handleActivateSave = useCallback(() => {
+   dispatch(toggleActivateSaveBtn(true))
+ }, [dispatch])
 
-  const deActivateSave = () => {
+  const deActivateSave = useCallback(() => {
     dispatch(toggleActivateSaveBtn(false))
-  }
+  }, [dispatch])
 
-  const fetchLinks = () => {
+  const fetchLinks = useCallback(() => {
     dispatch(fetchLinksFromDb())
-  }
+  }, [dispatch])
+
+  
 
   return {
     styles,

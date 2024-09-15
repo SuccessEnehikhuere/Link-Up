@@ -23,7 +23,7 @@ const ImgUploader = ({ setFile, user, file }) => {
       setImageLoaded(true)
       setUploadText('Change Image')
     }
-  }, [user])
+  }, [user, file])
 
   return (
     <>

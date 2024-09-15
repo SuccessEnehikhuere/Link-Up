@@ -21,7 +21,7 @@ const ChangesAlert = () => {
         setTimer((prev) => prev - 1)
       }
     }, 2000)
-  }, [timer, showChangesAlert])
+  }, [timer, showChangesAlert, dispatch])
 
   return (
     <section

@@ -35,7 +35,7 @@ const ProfilePage = () => {
     } else if (!watchAllFields.firstName && !watchAllFields.lastName) {
       setActivateSave(false)
     }
-  }, [watchAllFields])
+  }, [watchAllFields, file])
 
   // a function to dispatch the updateUser action with the form data
   const handleUpdate = async (data) => {
@@ -52,7 +52,7 @@ const ProfilePage = () => {
       setImageUploading(false)
     }
     const resp = await dispatch(
-      updateUser({ ...data, email: session?.user.email, image: imageUrl })
+      updateUser({ ...data, email: session?.user?.email, image: imageUrl })
     )
 
     // if the response is successful, reset the form
@@ -107,7 +107,7 @@ const ProfilePage = () => {
         <ProfileDetails
           register={register}
           updateUserLoading={updateUserLoading}
-          email={session?.user.email}
+          email={session?.user?.email}
         />
       </article>
       <hr />

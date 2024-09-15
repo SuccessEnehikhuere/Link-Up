@@ -20,7 +20,7 @@ const CopyLinkAlert = () => {
        setTimer((prev) => prev - 1)
      }
    }, 2000)
- }, [timer, showLinkAlert])
+ }, [timer, showLinkAlert, dispatch])
 
   return (
     <section

@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { registerUser } from '@/Redux/slices/authSlice'
 import CircleSpinner from '@/components/Loaders/CircleSpinner'
 
-const register = () => {
+const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const {register, watch, handleSubmit, formState:{ errors}} = useForm();
@@ -203,4 +203,4 @@ const register = () => {
   )
 }
 
-export default register
+export default Register

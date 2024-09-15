@@ -13,7 +13,7 @@ const ProfileContainer = () => {
     if (user?.id) {
       fetchLinks();
     }
-  }, [user]);
+  }, [user, fetchLinks]);
 
 
  return (
